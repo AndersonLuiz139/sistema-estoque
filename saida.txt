@@ -1,0 +1,44 @@
+=== 1. CADASTRO DE PRODUTOS ===
+4 produtos cadastrados com sucesso.
+
+  [0] Caneta Azul | preco unitario: R$ 2,50 | quantidade: 100
+      -> valor total: R$ 250,00
+  [1] Caderno 100 folhas | preco unitario: R$ 18,90 | quantidade: 40
+      -> valor total: R$ 756,00
+  [2] Leite Integral 1L | preco unitario: R$ 5,20 | quantidade: 30 | vence em: 10 dia(s)
+      -> valor total: R$ 156,00
+  [3] Iogurte Natural | preco unitario: R$ 4,00 | quantidade: 25 | vence em: 2 dia(s) | DESCONTO DE 20% APLICADO
+      -> valor total: R$ 80,00
+
+Valor total do estoque: R$ 1242,00
+
+=== 2. TENTANDO CADASTRAR PRODUTO COM QUANTIDADE NEGATIVA ===
+QuantidadeInvalidaException capturada: Quantidade invalida para "Borracha": -10 (nao pode ser negativa).
+
+=== 3. VENDAS ===
+Vendendo 10 unidades de Caneta Azul (indice 0)...
+Venda realizada. Agora: Caneta Azul | preco unitario: R$ 2,50 | quantidade: 90
+
+Tentando vender 999 unidades de Iogurte Natural (indice 3)...
+ProdutoIndisponivelException capturada: Estoque insuficiente de "Iogurte Natural": pedido 999, disponivel 25.
+
+--- Outras falhas de venda ---
+QuantidadeInvalidaException capturada: Quantidade de venda invalida: -5 (deve ser maior que zero).
+EstoqueException (generica) capturada: Nao existe produto no indice 99.
+
+=== 4. SOBRECARGA DE aplicarDesconto() ===
+Caderno antes: R$ 18,90
+Depois de aplicarDesconto(10.0): R$ 17,01
+Depois de aplicarDesconto(50.0, 2.00): R$ 15,01
+
+=== 5. VALOR TOTAL DO ESTOQUE (polimorfismo) ===
+  [0] Caneta Azul | preco unitario: R$ 2,50 | quantidade: 90
+      -> valor total: R$ 225,00
+  [1] Caderno 100 folhas | preco unitario: R$ 15,01 | quantidade: 40
+      -> valor total: R$ 600,40
+  [2] Leite Integral 1L | preco unitario: R$ 5,20 | quantidade: 30 | vence em: 10 dia(s)
+      -> valor total: R$ 156,00
+  [3] Iogurte Natural | preco unitario: R$ 4,00 | quantidade: 25 | vence em: 2 dia(s) | DESCONTO DE 20% APLICADO
+      -> valor total: R$ 80,00
+
+TOTAL: R$ 1061,40
